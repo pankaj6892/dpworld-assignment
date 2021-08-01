@@ -12,4 +12,4 @@ For SignIn use a valid email id as user name, password should not be blank.
 ## Project Allocation Screen
 Currently in JSON there is only data as per criteria in the screen shot below:
 
-![image](https://user-images.githubusercontent.com/25503182/127781181-4a5dcbd5-87e4-4616-b5e9-1ca36048c46d.png)
+![image](https://user-images.githubusercontent.com/25503182/127781354-646aae62-d885-4c57-a12e-321d0942a050.png)
