@@ -1,8 +1,8 @@
 {
   "project_details": [
     {
-      "date":"28/07/2021",
-      "department":"software engg",
+      "date":"2021-07-28",
+      "department":"software",
       "shift":"morning",
       "id": "S12345",
       "project": "S12345",
@@ -18,13 +18,13 @@
       ]
     },
     {
-      "date":"28/07/2021",
-      "department":"software engg",
+      "date":"2021-07-28",
+      "department":"software",
       "shift":"morning",
       "id": "S12346",
-      "project": "S12345",
-      "controller": "98765",
-      "manager": "43215",
+      "project": "S12346",
+      "controller": "98766",
+      "manager": "43216",
       "employees": [
         {
           "id": "123126"
@@ -35,19 +35,70 @@
       ]
     },
     {
-      "date":"28/07/2021",
-      "department":"software engg",
+      "date":"2021-07-28",
+      "department":"software",
       "shift":"morning",
       "id": "S12347",
-      "project": "S12345",
-      "controller": "98765",
-      "manager": "43215",
+      "project": "S12347",
+      "controller": "98767",
+      "manager": "43217",
       "employees": [
         {
           "id": "123128"
         },
         {
           "id": "123129"
+        }
+      ]
+    },
+    {
+      "date":"2021-07-28",
+      "department":"software",
+      "shift":"morning",
+      "id": "S12348",
+      "project": "S12348",
+      "controller": "98768",
+      "manager": "43218",
+      "employees": [
+        {
+          "id": "123130"
+        },
+        {
+          "id": "123131"
+        }
+      ]
+    },
+    {
+      "date":"2021-07-28",
+      "department":"software",
+      "shift":"morning",
+      "id": "S12349",
+      "project": "S12349",
+      "controller": "98769",
+      "manager": "43219",
+      "employees": [
+        {
+          "id": "123132"
+        },
+        {
+          "id": "123133"
+        }
+      ]
+    },
+    {
+      "date":"2021-07-28",
+      "department":"software",
+      "shift":"morning",
+      "id": "S12350",
+      "project": "S12350",
+      "controller": "98770",
+      "manager": "43220",
+      "employees": [
+        {
+          "id": "123133"
+        },
+        {
+          "id": "123134"
         }
       ]
     }
@@ -65,13 +116,113 @@
     },
     {
       "id": "123125",
-      "name": "123124",
-      "controller": "123124",
-      "manager": "123124",
-      "project": "123124",
-      "skill": "123124",
-      "role": "123124",
-      "grade": "123124"
+      "name": "Ravi",
+      "controller": "98766",
+      "manager": "43215",
+      "project": "S12345",
+      "skill": "AngularJS",
+      "role": "Developer",
+      "grade": "Good"
+    },
+    {
+      "id": "123126",
+      "name": "Mahesh",
+      "controller": "98765",
+      "manager": "43215",
+      "project": "S12345",
+      "skill": "ReactJS",
+      "role": "Developer",
+      "grade": "Excellent"
+    },
+    {
+      "id": "123127",
+      "name": "Ravi",
+      "controller": "98766",
+      "manager": "43215",
+      "project": "S12345",
+      "skill": "AngularJS",
+      "role": "Developer",
+      "grade": "Good"
+    },
+    {
+      "id": "123128",
+      "name": "Mahesh",
+      "controller": "98765",
+      "manager": "43215",
+      "project": "S12345",
+      "skill": "ReactJS",
+      "role": "Developer",
+      "grade": "Excellent"
+    },
+    {
+      "id": "123129",
+      "name": "Ravi",
+      "controller": "98766",
+      "manager": "43215",
+      "project": "S12345",
+      "skill": "AngularJS",
+      "role": "Developer",
+      "grade": "Good"
+    },
+    {
+      "id": "123130",
+      "name": "Mahesh",
+      "controller": "98765",
+      "manager": "43215",
+      "project": "S12345",
+      "skill": "ReactJS",
+      "role": "Developer",
+      "grade": "Excellent"
+    },
+    {
+      "id": "123131",
+      "name": "Ravi",
+      "controller": "98766",
+      "manager": "43215",
+      "project": "S12345",
+      "skill": "AngularJS",
+      "role": "Developer",
+      "grade": "Good"
+    },
+    {
+      "id": "123132",
+      "name": "Mahesh",
+      "controller": "98765",
+      "manager": "43215",
+      "project": "S12345",
+      "skill": "ReactJS",
+      "role": "Developer",
+      "grade": "Excellent"
+    },
+    {
+      "id": "123133",
+      "name": "Ravi",
+      "controller": "98766",
+      "manager": "43215",
+      "project": "S12345",
+      "skill": "AngularJS",
+      "role": "Developer",
+      "grade": "Good"
+    },
+    {
+      "id": "123134",
+      "name": "Mahesh",
+      "controller": "98765",
+      "manager": "43215",
+      "project": "S12345",
+      "skill": "ReactJS",
+      "role": "Developer",
+      "grade": "Excellent"
+    },
+    {
+      "id": "123135",
+      "name": "Ravi",
+      "controller": "98766",
+      "manager": "43215",
+      "project": "S12345",
+      "skill": "AngularJS",
+      "role": "Developer",
+      "grade": "Good"
     }
   ]
 }

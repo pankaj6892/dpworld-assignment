@@ -1,33 +1,64 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import "./ProjectAllocation.css";
-import ReactDataGrid from "react-data-grid";
-import Board from "../Board/Board";
-import Card from "../Card/Card";
 import ProjectCard from "../ProjectCard/ProjectCard";
+import { Link } from "react-router-dom";
 
 const ProjectAllocation = (props) => {
   const dispatch = useDispatch();
 
   const [employeeList, setEmployeeList] = useState([]);
   const [projectCard, setProjectCard] = useState([]);
+  const [error, setError] = useState({});
+  const [searchCriteria, setSearchCriteria] = useState({
+    shift: "morning",
+    department: "software",
+  });
 
-  //props.data.then((data) => {setEmployeeList(data[0].employees[0])});
   const state = useSelector((state) => state);
 
-  console.log(state);
-
   const getProjectData = () => {
-    dispatch({ type: "getProjects" });
-    state.project_details.then((data) => {
-      let project = [];
-      for (let i = 0; i < data.length; i++) {
-        project.push(data[i]);
-      }
-      setProjectCard(project);
-    });
+    let errorFlag = 0;
 
-    getEmployeeData();
+    if (!searchCriteria.date) {
+      setError({ ...error, date: "Select Date" });
+      errorFlag = 1;
+    } else {
+      delete error.date;
+    }
+    if (searchCriteria.shift === "" || searchCriteria.shift === undefined) {
+      setError({ ...error, shift: "Select Shift" });
+      errorFlag = 1;
+    }
+    if (
+      searchCriteria.shift === "" ||
+      searchCriteria.department === undefined
+    ) {
+      setError({ ...error, department: "Select Department" });
+      errorFlag = 1;
+    }
+
+    dispatch({ type: "getProjects" });
+    if (errorFlag === 0) {
+      state.project_details.then((data) => {
+        let project = [];
+        for (let i = 0; i < data.length; i++) {
+          project.push(data[i]);
+        }
+        project = project.filter((pro) => {
+          return (
+            pro.date === searchCriteria.date &&
+            pro.shift === searchCriteria.shift &&
+            pro.department === searchCriteria.department
+          );
+        });
+        setProjectCard(project);
+      });
+
+      getEmployeeData();
+    } else {
+      setProjectCard([]);
+    }
   };
 
   const getEmployeeData = () => {
@@ -43,8 +74,6 @@ const ProjectAllocation = (props) => {
 
   const [filteredEmployee, setFilteredEmployee] = useState([]);
   const setEmployeeDetails = (id) => {
-    console.log("Filter called with id ", id);
-    console.log(employeeList);
     let filteredEmployeeTemp = employeeList.filter((employee) => {
       return employee.id === id;
     });
@@ -55,59 +84,92 @@ const ProjectAllocation = (props) => {
 
   if (projectCard.length !== 0) {
     projects = projectCard.map((project) => {
-      return <ProjectCard records={project} setEmployee={setEmployeeDetails} />;
+      return <ProjectCard key={project.id} records={project} setEmployee={setEmployeeDetails} />;
     });
   }
 
-  console.log(projects);
 
-  const columns = [{ key: "id", name: "ID", editable: true }];
 
-  const rows = [{ id: 0 }, { id: 1 }, { id: 2 }];
   return (
     <div className="background__dark">
       <div className="row">
         <div className="column-left">
+          <div className="navbar">
+          <div>
+              <Link to="/dashboard">
+                <button className="navigation">Dashboard</button>
+              </Link>
+            </div>
+            <div>
+              <Link to="/project">
+                <button className="navigation">Project Allocation</button>
+              </Link>
+            </div>
+          </div>
+          {props.page === "project" &&
           <div className="sidebar">
-          <div><button className="navigation">Dashboard</button></div>
-            <div><button className="navigation">Project Allocation</button></div>
+             
             <div className="filter__form">
               <div className="input__field">
-                <label for="Date">Date: </label>
+                <label>Date: </label>
                 <input
                   className="input__values"
                   type="date"
                   id="date"
                   name="date"
+                  onChange={(e) =>
+                    setSearchCriteria({
+                      ...searchCriteria,
+                      date: e.target.value,
+                    })
+                  }
                 />
-                <p> </p>
+                <span className="validation__error">
+                  {error.date ? error.date : " "}
+                </span>
               </div>
               <div className="input__field">
-                <label for="Shift">Shift: </label>
-                <select id="shift" name="shift" className="input__values">
+                <label>Shift: </label>
+                <select
+                  id="shift"
+                  name="shift"
+                  className="input__values"
+                  onChange={(e) =>
+                    setSearchCriteria({
+                      ...searchCriteria,
+                      shift: e.target.value,
+                    })
+                  }
+                >
                   <option value="morning">Morning</option>
                   <option value="evening">Evening</option>
-                  <option value="Night">Night</option>
+                  <option value="night">Night</option>
                 </select>
-                <p> </p>
+                <span className="validation__error"> </span>
               </div>
               <div className="input__field">
-                <label for="Dept">Dept: </label>
+                <label>Dept: </label>
                 <select
                   id="department"
                   name="department"
                   className="input__values"
+                  onChange={(e) =>
+                    setSearchCriteria({
+                      ...searchCriteria,
+                      department: e.target.value,
+                    })
+                  }
                 >
                   <option value="software">Software Engg</option>
                   <option value="accounts">Accounts</option>
                   <option value="administration">Admin</option>
                 </select>
-                <p> </p>
+                <span className="validation__error"> </span>
               </div>
               <button className="submit__button" onClick={getProjectData}>
                 Display
               </button>
-            </div>
+            </div> 
             {filteredEmployee.length !== 0 && (
               <div className="employee__details">
                 <table className="styled__table">
@@ -118,7 +180,7 @@ const ProjectAllocation = (props) => {
                   </thead>
                   <tbody>
                     <tr>
-                      <td>Employee No</td>
+                      <td>Emp. No</td>
                       <td>
                         {filteredEmployee.length !== 0
                           ? filteredEmployee[0].id
@@ -126,7 +188,7 @@ const ProjectAllocation = (props) => {
                       </td>
                     </tr>
                     <tr>
-                      <td>Employee Name</td>
+                      <td>Emp. Name</td>
                       <td>
                         {filteredEmployee.length !== 0
                           ? filteredEmployee[0].name
@@ -185,13 +247,13 @@ const ProjectAllocation = (props) => {
                 </table>
               </div>
             )}
-          </div>
+          </div>}
         </div>
         <div className="column-right">
           <div className="top__navigation">
-            <div className="nav__text">PROJECT WISE - EMPLOYEE ALLOCATION</div>
+            <div className="nav__text">{props.page === "project" ? "PROJECT WISE - EMPLOYEE ALLOCATION" : "DASHBOARD"}</div>
           </div>
-          <div className="projects">{projects}</div>
+          { props.page === "project" && <div className="projects">{projects}</div> }
         </div>
       </div>
     </div>

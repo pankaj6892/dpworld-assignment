@@ -3,7 +3,6 @@ import Board from "../Board/Board";
 import Card from "../Card/Card";
 
 const ProjectCard = (props) => {
-  console.log(props);
   const [employeeList, setEmployeeList] = useState(props.records.employees);
 
   let employees = {};
@@ -12,6 +11,7 @@ const ProjectCard = (props) => {
     employees = employeeList.map((employee) => {
       return (
         <Card
+          key={employee.id}
           id={employee.id}
           className="card"
           draggable="true"

@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import "./Login.css";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
-import EmailIcon from "@material-ui/icons/Email";
-import LockOpenIcon from "@material-ui/icons/LockOpen";
 
 const Login = () => {
   const [user, setUser] = useState({});
@@ -32,7 +30,7 @@ const Login = () => {
     }
 
     if (error === 0) {
-      console.log("Login Successful");
+      window.location = "/project";
     }
   };
 
