@@ -1,0 +1,77 @@
+{
+  "project_details": [
+    {
+      "date":"28/07/2021",
+      "department":"software engg",
+      "shift":"morning",
+      "id": "S12345",
+      "project": "S12345",
+      "controller": "98765",
+      "manager": "43215",
+      "employees": [
+        {
+          "id": "123124"
+        },
+        {
+          "id": "123125"
+        }
+      ]
+    },
+    {
+      "date":"28/07/2021",
+      "department":"software engg",
+      "shift":"morning",
+      "id": "S12346",
+      "project": "S12345",
+      "controller": "98765",
+      "manager": "43215",
+      "employees": [
+        {
+          "id": "123126"
+        },
+        {
+          "id": "123127"
+        }
+      ]
+    },
+    {
+      "date":"28/07/2021",
+      "department":"software engg",
+      "shift":"morning",
+      "id": "S12347",
+      "project": "S12345",
+      "controller": "98765",
+      "manager": "43215",
+      "employees": [
+        {
+          "id": "123128"
+        },
+        {
+          "id": "123129"
+        }
+      ]
+    }
+  ],
+  "employees": [
+    {
+      "id": "123124",
+      "name": "Mahesh",
+      "controller": "98765",
+      "manager": "43215",
+      "project": "S12345",
+      "skill": "ReactJS",
+      "role": "Developer",
+      "grade": "Excellent"
+    },
+    {
+      "id": "123125",
+      "name": "123124",
+      "controller": "123124",
+      "manager": "123124",
+      "project": "123124",
+      "skill": "123124",
+      "role": "123124",
+      "grade": "123124"
+    }
+  ]
+}
